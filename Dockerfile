@@ -1,9 +1,9 @@
 FROM node:12.10.0-alpine
 
-LABEL "version"="0.1.0"
-LABEL "repository"="https://github.com/Ybrin/secure-actions-webhook"
-LABEL "homepage"="https://github.com/Ybrin/secure-actions-webhook"
-LABEL "maintainer"="Koray Koska <koray@koska.at>"
+LABEL "version"="0.1.3"
+LABEL "repository"="https://github.com/Greenlight-Simulation/secure-actions-webhook"
+LABEL "homepage"="https://github.com/Greenlight-Simulation/secure-actions-webhook"
+LABEL "maintainer"="Dan Marcucci <dm@greenlightsimulation.com>"
 LABEL "com.github.actions.name"="Secure Actions Webhook"
 LABEL "com.github.actions.description"="Post data and an hmac signature to an endpoint"
 LABEL "com.github.actions.icon"="message-square"

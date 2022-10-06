@@ -8,7 +8,7 @@ Sending a string:
 
 ```yaml
 - name: Webhook
-  uses: ybrin/secure-actions-webhook@0.1.2
+  uses: Greenlight-Simulation/secure-actions-webhook@0.1.3
   env:
     REQUEST_URI: ${{ secrets.REQUEST_URI }}
     REQUEST_DATA: "something_interesting"
@@ -19,13 +19,12 @@ Sending a json string:
 
 ```yaml
 - name: Webhook
-  uses: ybrin/secure-actions-webhook@0.1.2
+  uses: Greenlight-Simulation/secure-actions-webhook@0.1.3
   env:
     REQUEST_URI: ${{ secrets.REQUEST_URI }}
     REQUEST_DATA: '{ "something": "interesting" }'
     HMAC_SECRET: "secret_used_to_generate_signature"
 ```
 
-The request will include the header `X-Hub-Signature`, which is the hmac signature of the raw body just like in Github webhooks
-(sha1=<hmac_signature>).    
+The request will include the header `X-Request-Signature`, which is the HMAC signature of the raw body (SHA256, Base64).
 Verify it on your endpoint for integrity.
