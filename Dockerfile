@@ -1,6 +1,6 @@
 FROM node:12.10.0-alpine
 
-LABEL "version"="0.1.3"
+LABEL "version"="0.1.4"
 LABEL "repository"="https://github.com/Greenlight-Simulation/secure-actions-webhook"
 LABEL "homepage"="https://github.com/Greenlight-Simulation/secure-actions-webhook"
 LABEL "maintainer"="Dan Marcucci <dm@greenlightsimulation.com>"

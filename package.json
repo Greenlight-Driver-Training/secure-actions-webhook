@@ -1,6 +1,6 @@
 {
   "name": "secure-actions-webhook",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Github Actions secure webhook",
   "main": "main.js",
   "dependencies": {

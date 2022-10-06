@@ -13,20 +13,15 @@ const createHmacSignature = body => {
     return CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(JSON.stringify(body), hmacSecret));
 };
 
-function isJsonString(str) {
-    try {
-        const json = JSON.parse(str);
-        return typeof json === "object";
-    } catch (e) {
-        return false;
-    }
+try {
+    JSON.parse(process.env.REQUEST_DATA);
+} catch (e) {
+    console.error(`REQUEST_DATA (${process.env.REQUEST_DATA}) is not a valid JSON string.`);
+    process.exit(1);
 }
 
 const uri = process.env.REQUEST_URI;
-const data = {
-    data: isJsonString(process.env.REQUEST_DATA) ? JSON.parse(process.env.REQUEST_DATA) : process.env.REQUEST_DATA
-};
-
+const data = JSON.parse(process.env.REQUEST_DATA);
 const signature = createHmacSignature(data);
 
 request(
@@ -42,7 +37,6 @@ request(
             // Something went wrong
             console.error(`Request failed with status code ${response.statusCode}!`);
             console.error(response.body);
-
             process.exit(1);
         } else {
             // Success
