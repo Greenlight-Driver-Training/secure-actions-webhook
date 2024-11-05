@@ -1,6 +1,6 @@
-FROM node:12.10.0-alpine
+FROM node:22.11.0-bookworm-slim
 
-LABEL "version"="0.1.4"
+LABEL "version"="1.0.0"
 LABEL "repository"="https://github.com/Greenlight-Simulation/secure-actions-webhook"
 LABEL "homepage"="https://github.com/Greenlight-Simulation/secure-actions-webhook"
 LABEL "maintainer"="Dan Marcucci <dm@greenlightsimulation.com>"
@@ -9,16 +9,12 @@ LABEL "com.github.actions.description"="Post data and an hmac signature to an en
 LABEL "com.github.actions.icon"="message-square"
 LABEL "com.github.actions.color"="gray-dark"
 
-# Add the entry point
 RUN mkdir /app
-ADD main.js /app/main.js
-ADD package.json /app/package.json
+ADD main.mjs /app/main.mjs
 ADD entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
 
 RUN cd /app
 WORKDIR /app
-RUN npm install
 
-# Load the entry point
 ENTRYPOINT ["/app/entrypoint.sh"]
