@@ -8,7 +8,7 @@ Sending a string:
 
 ```yaml
 - name: Webhook
-  uses: Greenlight-Simulation/secure-actions-webhook@1.0.0
+  uses: Greenlight-Driver-Training/secure-actions-webhook@1.0.0
   env:
     REQUEST_URI: ${{ secrets.REQUEST_URI }}
     REQUEST_DATA: "something_interesting"
@@ -19,7 +19,7 @@ Sending a json string:
 
 ```yaml
 - name: Webhook
-  uses: Greenlight-Simulation/secure-actions-webhook@1.0.0
+  uses: Greenlight-Driver-Training/secure-actions-webhook@1.0.0
   env:
     REQUEST_URI: ${{ secrets.REQUEST_URI }}
     REQUEST_DATA: '{ "something": "interesting" }'
